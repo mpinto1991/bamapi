@@ -1,0 +1,49 @@
+# OSX DS_STORE file
+.DS_STORE
+*.exe
+
+# NodeJS
+node_modules
+.npm
+
+# Python
+*.pyc
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# Security
+keys/
+db.json
+
+# IaC
+.aws-sam
+.serverless
+
+# IDE
+.vscode/
+.idea/
+
+# Env
+.env
+venv/
+
+# Cache
+.eslintcache
+.pytest_cache
+__pycache__
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage
+.nyc_output
+.coverage
+coverage.xml
+

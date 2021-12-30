@@ -1,0 +1,5 @@
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Invoke-WebRequest 'https://s3.amazonaws.com/amazoncloudwatch-agent/windows/amd64/latest/amazon-cloudwatch-agent.msi' -OutFile amazon-cloudwatch-agent.msi
+Start-Process .\amazon-cloudwatch-agent.msi -Wait
+Remove-Item amazon-cloudwatch-agent.msi
+

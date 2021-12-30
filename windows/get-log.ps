@@ -1,0 +1,1 @@
+Get-Content -Path "C:\Escucha_produccion\Log\log-2020-8-10.csv" -Tail 1 | %{$_.Split("|")[1]} | %{[xml]$_} | Select-Xml "//Respuesta/*/*" | %{$item=$_.Node; "$($item.Name): $($item.InnerText)"} 

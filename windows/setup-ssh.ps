@@ -1,0 +1,9 @@
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Invoke-WebRequest 'https://github.com/PowerShell/Win32-OpenSSH/releases/download/v8.1.0.0p1-Beta/OpenSSH-Win64.zip' -OutFile OpenSSH-Win64.zip
+Expand-Archive -LiteralPath OpenSSH-Win64.zip -DestinationPath 'C:\Program Files\'
+Remove-Item OpenSSH-Win64.zip
+setx PATH "$env:path;C:\Program Files\OpenSSH-Win64" -m
+cd "C:\Program Files\OpenSSH-Win64"
+.\install-sshd.ps1
+Set-Service sshd -StartupType Automatic; Set-Service ssh-agent -StartupType Automatic; Start-Service sshd; Start-Service ssh-agent
+New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22

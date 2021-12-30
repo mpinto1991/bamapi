@@ -1,0 +1,28 @@
+
+# Install scoop
+iwr -useb get.scoop.sh | iex
+
+# Scoop install nvm
+scoop install git nvm
+
+# Install Node.js v 10
+nvm install 13.5
+nvm use 13.5
+
+npm install -g node-windows
+
+# git bash
+# ssh-keygen
+# echo "Y" | git clone git@bitbucket.org:vanateam/integrations.git
+
+# Workdir
+cd .\integrations\bam\bam
+
+New-NetFirewallRule -DisplayName "NodeJS app port DEV" -Direction Inbound -LocalPort 3001 -Protocol TCP -Action Allow
+New-NetFirewallRule -DisplayName "NodeJS app port" -Direction Inbound -LocalPort 3000 -Protocol TCP -Action Allow
+
+npm install
+npm link node-windows
+
+### node windows/service.js
+# npm run start:prod

@@ -1,0 +1,45 @@
+{
+  "name": "gt-bam-api",
+  "version": "0.0.1",
+  "description": "Api to write, read and list files, used for GT-BAM",
+  "main": "index.js",
+  "scripts": {
+    "start:local": "env-cmd -f .env.local.json nodemon --inspect index.js",
+    "start:dev": "env-cmd -f .env.dev.json nodemon --inspect index.js",
+    "start:prod": "env-cmd -f .env.prod.json nodemon --inspect=9220 index.js",
+    "test": "mocha tests/unit/"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "bam",
+    "integration",
+    "disbursal",
+    "payout",
+    "ec2"
+  ],
+  "author": "Vana Tech S.A.,",
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "ajv": "^6.10.2",
+    "archiver-promise": "^1.0.0",
+    "env-cmd": "^10.0.1",
+    "humps": "^2.0.1",
+    "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^7.4.0",
+    "moment": "^2.27.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.2.2",
+    "mocha-explorer-launcher-scripts": "^0.3.0",
+    "nodemon": "^2.0.1",
+    "sinon": "^7.5.0"
+  }
+}
